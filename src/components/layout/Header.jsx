@@ -10,17 +10,16 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Check if we are on homepage
+  // Minish Logic: Header is transparent ONLY on Home when at top. 
+  // Everywhere else (or when scrolled), it's white with a border.
   const isHome = location.pathname === '/';
-  
-  // Header state logic
   const isTransparent = isHome && !isScrolled;
   
   const headerStyle = {
@@ -30,48 +29,50 @@ const Header = () => {
     width: '100%', 
     zIndex: 1000, 
     transition: 'all 0.4s ease',
-    padding: isScrolled ? '1rem 0' : '2rem 0',
-    backgroundColor: isTransparent ? 'transparent' : '#fff',
-    borderBottom: isTransparent ? 'none' : '1px solid rgba(0,0,0,0.05)',
+    padding: isScrolled ? '1.2rem 0' : '2.5rem 0', // Minish has tall header initially
+    backgroundColor: isTransparent ? 'transparent' : 'rgba(255, 255, 255, 0.95)',
+    backdropFilter: isTransparent ? 'none' : 'blur(10px)',
+    borderBottom: isTransparent ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)',
     color: isTransparent ? '#fff' : '#000'
   };
 
   const logoStyle = {
-    fontFamily: 'var(--font-serif)', 
-    fontSize: '1.5rem', 
-    letterSpacing: '0.1em', 
-    fontWeight: 'bold',
+    fontFamily: 'var(--font-main)', /* Minish uses Sans for Logo too */
+    fontSize: '1.4rem', 
+    letterSpacing: '0.05em', 
+    fontWeight: '700',
     color: 'inherit',
     textDecoration: 'none'
   };
 
   const navLinkStyle = {
     fontSize: '0.95rem',
-    fontWeight: 600,
+    fontWeight: 500, // Minish relies on clean medium weight
     color: 'inherit',
     textDecoration: 'none',
     transition: 'opacity 0.3s',
-    letterSpacing: '-0.02em' // Korean font spacing
+    letterSpacing: '-0.01em',
+    opacity: isTransparent ? 0.9 : 1
   };
 
-  // Idea Dental Exact Menu
+  // Minish Menu Structure
   const menuItems = [
-    { label: '특별함', path: '/', onClick: () => window.scrollTo(0,0) }, // Specialty -> Home
-    { label: '의료진소개', path: '/about' }, // Medical Staff
-    { label: '진료과목', path: '/services' }, // Services
-    { label: '둘러보기', path: '/interior' }, // Interior (New)
-    { label: '오시는길', path: '/contact' } // Location
+    { label: '특별함', path: '/', onClick: () => window.scrollTo(0,0) },
+    { label: '의료진소개', path: '/about' },
+    { label: '진료과목', path: '/services' },
+    { label: '둘러보기', path: '/interior' },
+    { label: '오시는길', path: '/contact' }
   ];
 
   return (
     <header className="header" style={headerStyle}>
       <div className="container" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Link to="/" style={logoStyle}>
-          IDEA DENTAL
+          IDEA DENTAL CLINIC
         </Link>
         
         {/* Desktop Nav */}
-        <nav className="desktop-nav" style={{display: 'flex', gap: '2.5rem'}}>
+        <nav className="desktop-nav" style={{display: 'flex', gap: '3.5rem'}}>
           {menuItems.map((item) => (
             <Link 
               key={item.label} 

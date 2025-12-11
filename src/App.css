@@ -1,16 +1,15 @@
 /* Global Vars - Luxury Theme */
 :root {
-  --primary: #000000;
-  --secondary: #666666;
-  --bg: #ffffff;
-  --line: #e5e5e5;
-  --font-main: 'Inter', -apple-system, sans-serif;
-  --font-serif: "Times New Roman", serif;
+  --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  --font-serif: 'Pretendard', serif; /* Minish uses clean sans mainly, but we keep option */
   
-  /* Spacing System */
-  --space-hero: 100vh;
-  --space-section: 180px; /* Massive spacing per section */
-  --space-element: 2rem;
+  --bg-dark: #111111;
+  --bg-light: #f8f8f8;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --accent: #000000;
+  
+  --border-color: #e5e5e5;
 }
 
 * {
@@ -25,17 +24,18 @@ html {
 
 body {
   font-family: var(--font-main);
-  background-color: var(--bg);
-  color: var(--primary);
+  background-color: #ffffff;
+  color: var(--text-primary);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  letter-spacing: -0.02em; /* Minish crispness */
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: opacity 0.3s ease;
 }
 
 ul { list-style: none; }
