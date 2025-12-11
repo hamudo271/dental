@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Contact = () => {
+  useScrollAnimation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

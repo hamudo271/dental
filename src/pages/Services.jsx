@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Services = () => {
+  useScrollAnimation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

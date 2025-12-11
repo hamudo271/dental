@@ -56,7 +56,7 @@ const Header = () => {
 
   // Idea Dental Exact Menu
   const menuItems = [
-    { label: '특별함', path: '/' }, // Specialty -> Home
+    { label: '특별함', path: '/', onClick: () => window.scrollTo(0,0) }, // Specialty -> Home
     { label: '의료진소개', path: '/about' }, // Medical Staff
     { label: '진료과목', path: '/services' }, // Services
     { label: '둘러보기', path: '/interior' }, // Interior (New)
@@ -77,6 +77,7 @@ const Header = () => {
               key={item.label} 
               to={item.path} 
               style={navLinkStyle}
+              onClick={item.onClick}
             >
               {item.label}
             </Link>

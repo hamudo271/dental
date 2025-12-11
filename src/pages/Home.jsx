@@ -1,24 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRight, Check, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Home = () => {
-  // Scroll Animation Observer
-  const observer = useRef(
-    new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 })
-  );
+  useScrollAnimation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const elements = document.querySelectorAll('.fade-in-up');
-    elements.forEach((el) => observer.current.observe(el));
-    return () => observer.current.disconnect();
   }, []);
 
   return (
