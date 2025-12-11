@@ -1,0 +1,130 @@
+/* Layout.css */
+.header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  background: transparent; /* Transparent initially */
+}
+
+/* Scrolled state for Header */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  height: 80px; /* Slightly shrink */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white; /* Default white on hero */
+  transition: color 0.3s;
+}
+
+.header.scrolled .logo {
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: white;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.header.scrolled .nav-link {
+  color: var(--color-text-main);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-secondary);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-header {
+  padding: 0.6rem 1.75rem;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+.header.scrolled .btn-header {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: white;
+}
+
+.btn-header:hover {
+  background: white;
+  color: var(--color-primary);
+}
+
+.header.scrolled .btn-header:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Footer Premium Styles */
+.footer {
+  background-color: #08162e; /* Darker than primary */
+  color: rgba(255, 255, 255, 0.8);
+  padding: 5rem 0 2rem;
+}
+
+.footer h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-family: "Playfair Display", serif;
+}
+
+.footer-section p, .footer-links li {
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 4rem;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+}
