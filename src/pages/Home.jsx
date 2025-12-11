@@ -185,16 +185,7 @@ const Home = () => {
          </div>
       </section>
 
-      {/* Minimal Contact Box */}
-      <section className="section contact-minimal fade-in-up">
-        <div className="container">
-           <h2 className="contact-large-text">
-             We Design Your<br/>
-             Beautiful Smile
-           </h2>
-           <Link to="/contact" className="btn btn-lg">CONTACT US</Link>
-        </div>
-      </section>
+
     </div>
   );
 };

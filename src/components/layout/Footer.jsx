@@ -54,6 +54,14 @@ const Footer = () => {
                 <li><Link to="/services">Blog</Link></li>
                 <li><Link to="/contact">Instagram</Link></li>
              </ul>
+             
+             <div style={{marginTop: '2rem'}}>
+                <h4 style={{fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem', textTransform: 'uppercase'}}>Design</h4>
+                <p style={{fontSize: '0.8rem', color: '#666', lineHeight: 1.6}}>
+                   UI Design by IDEA<br/>
+                   Art Design by MINISH
+                </p>
+             </div>
           </div>
         </div>
         
