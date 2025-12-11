@@ -1,80 +1,60 @@
 import { Link } from 'react-router-dom';
 import './Layout.css';
 
-
 const Footer = () => {
   return (
     <footer style={{
         backgroundColor: '#111', 
-        color: '#fff', 
-        padding: '5rem 0 3rem',
+        color: '#888', 
+        fontSize: '0.85rem',
+        borderTop: '1px solid #222'
     }}>
-      <div className="container">
-        <div style={{
-            display: 'grid', 
-            gridTemplateColumns: '1.5fr 1fr 1fr 1fr', 
-            gap: '3rem',
-            marginBottom: '4rem',
-            borderBottom: '1px solid #333',
-            paddingBottom: '4rem'
-        }}>
-          {/* Brand Col */}
-          <div>
-            <h3 style={{fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 700}}>IDEA DENTAL CLINIC</h3>
-            <p style={{fontSize: '0.9rem', color: '#999', lineHeight: 1.8}}>
-              이데아치과<br/>
-              대표자: 국형용<br/>
-              사업자등록번호: 123-45-67890
-            </p>
-          </div>
-          
-          {/* Location */}
-          <div>
-            <h4 style={{fontSize: '0.9rem', marginBottom: '1.5rem', color: '#fff'}}>Location</h4>
-            <p style={{fontSize: '0.9rem', color: '#999', lineHeight: 1.8}}>
-              서울 동대문구 휘경로 13<br/>
-              더305빌딩 6, 7F
-            </p>
-          </div>
+      {/* Top Bar (Legal Links) */}
+      <div style={{borderBottom: '1px solid #222'}}>
+        <div className="container" style={{display: 'flex', gap: '2rem', padding: '1.5rem 2rem'}}>
+           <Link to="#" style={{color: '#fff', fontWeight: 'bold'}}>개인정보처리방침</Link>
+           <Link to="#">이용약관</Link>
+           <Link to="#">환자권리장전</Link>
+           <Link to="/contact">오시는 길</Link>
+        </div>
+      </div>
 
-          {/* Contact */}
-           <div>
-             <h4 style={{fontSize: '0.9rem', marginBottom: '1.5rem', color: '#fff'}}>Contact</h4>
-             <p style={{fontSize: '0.9rem', color: '#999', lineHeight: 1.8}}>
-               T. 02-960-2275<br/>
-               F. 02-960-2276
-             </p>
-           </div>
-          
-          {/* Social / Menu */}
-          <div>
-             <h4 style={{fontSize: '0.9rem', marginBottom: '1.5rem', color: '#fff'}}>Connect</h4>
-             <ul style={{fontSize: '0.9rem', lineHeight: 2, color: '#999'}}>
-                <li><Link to="/about">Kakao Talk</Link></li>
-                <li><Link to="/services">Blog</Link></li>
-                <li><Link to="/contact">Instagram</Link></li>
-             </ul>
-             
-             <div style={{marginTop: '2rem'}}>
-                <h4 style={{fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem', textTransform: 'uppercase'}}>Design</h4>
-                <p style={{fontSize: '0.8rem', color: '#666', lineHeight: 1.6}}>
-                   UI Design by IDEA<br/>
-                   Art Design by MINISH
-                </p>
-             </div>
-          </div>
-        </div>
-        
-        {/* Bottom */}
-        <div style={{
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            color: '#555', 
-            fontSize: '0.8rem'
-        }}>
-           <p>© {new Date().getFullYear()} Idea Dental Clinic.</p>
-           <p>Privacy Policy | Terms of Use</p>
-        </div>
+      {/* Main Content */}
+      <div className="container" style={{padding: '4rem 2rem 5rem'}}>
+         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '3rem'}}>
+            
+            {/* Left: Info */}
+            <div style={{maxWidth: '600px'}}>
+               <h3 style={{color: '#fff', fontSize: '1.1rem', marginBottom: '1.5rem', fontWeight: 600}}>이데아치과 IDEA Dental Clinic</h3>
+               <div style={{lineHeight: '1.8', display: 'flex', flexWrap: 'wrap', gap: '2rem'}}>
+                  <div>
+                    <p>대표자 : 국형용</p>
+                    <p>사업자등록번호 : 123-45-67890</p>
+                    <p>T. 02-960-2275 &nbsp; | &nbsp; F. 02-960-2276</p>
+                  </div>
+                  <div>
+                    <p>주소 : 서울 동대문구 휘경로 13, 더305빌딩 6, 7F</p>
+                    <p>E-mail : help@ideadental.com</p>
+                  </div>
+               </div>
+               <p style={{marginTop: '2rem', fontSize: '0.8rem', opacity: 0.6}}>
+                  Copyright © {new Date().getFullYear()} Idea Dental Clinic. All Rights Reserved.
+               </p>
+            </div>
+
+            {/* Right: Design Credits */}
+            <div style={{textAlign: 'right'}}>
+               <div style={{marginBottom: '2rem'}}>
+                 <span style={{display: 'block', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.1em', marginBottom: '0.5rem'}}>UI Design</span>
+                 <strong style={{color: '#fff', fontSize: '1rem', fontFamily: 'var(--font-serif)'}}>IDEA ART</strong>
+               </div>
+               <div>
+                 <span style={{display: 'block', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.1em', marginBottom: '0.5rem'}}>Art Design</span>
+                 <strong style={{color: '#fff', fontSize: '1rem', fontFamily: 'var(--font-serif)'}}>MINISH</strong>
+               </div>
+            </div>
+
+         </div>
       </div>
     </footer>
   );
