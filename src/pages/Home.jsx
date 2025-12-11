@@ -246,28 +246,28 @@ const Home = () => {
          </div>
       </section>
 
-      {/* Difference Section (New Request 2) */}
+      {/* Difference Section (New Request 2) - Text Update */}
       <section className="section bg-light" style={{padding: '10rem 0'}}>
          <div className="container">
             <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center'}}>
                {/* Left: Text */}
                <div className="fade-in-up">
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 600}}>이데아는 뭐가 달라?</h3>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 600}}>이데아의 진료 철학</h3>
                   <h2 className="title-display" style={{fontSize: '4rem', marginBottom: '2rem', lineHeight: 1.1, color: '#111'}}>
-                     어금니까지 되니까
+                     자연치아보다<br/>더 건강하게
                   </h2>
                   <div style={{marginBottom: '3rem', fontSize: '1.1rem', lineHeight: 1.7, color: '#555'}}>
                      <p style={{marginBottom: '1rem'}}>
-                        <strong>0.1mm 두께의 수복물 제작</strong>은<br/>
-                        저희가 10년 전에 완성했습니다.
+                        <strong>무분별한 치아 삭제</strong>는<br/>
+                        이데아치과에선 있을 수 없습니다.
                      </p>
                      <p>
-                        이데아는 초정밀 가공기술을 발전시켜<br/>
-                        어금니도 완벽하게 복구합니다.
+                        본래의 치아 기능을 회복시키고<br/>
+                        심미성까지 놓치지 않는 정밀한 치료를 약속합니다.
                      </p>
                   </div>
                   <Link to="/about" className="btn btn-lg" style={{borderRadius: '50px', padding: '1rem 3rem'}}>
-                     더 알아보기 &nbsp; &gt;
+                     진료 철학 더보기 &nbsp; &gt;
                   </Link>
                </div>
 
@@ -276,35 +276,33 @@ const Home = () => {
                   {/* Card 1 */}
                   <div className="fade-in-up delay-100" style={{background: '#eef0f5', padding: '3rem', borderRadius: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                      <div>
-                        <h4 style={{fontSize: '1.3rem', fontWeight: 700, color: '#003087', marginBottom: '0.5rem'}}>이데아는</h4>
-                        <p style={{fontSize: '1.1rem', color: '#333'}}>라미네이트가 아닙니다</p>
+                        <h4 style={{fontSize: '1.3rem', fontWeight: 700, color: '#003087', marginBottom: '0.5rem'}}>최소 삭제 원칙</h4>
+                        <p style={{fontSize: '1.1rem', color: '#333'}}>자연 치아 보존을 최우선으로 합니다</p>
                      </div>
                      <div style={{background: '#fff', borderRadius: '50%', width: '80px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                         {/* Icon placeholder (Tooth) */}
-                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#003087" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4.2 18.2A9 9 0 0112 2a9 9 0 017.8 16.2"/><path d="M12 2a9 9 0 00-7.8 16.2"/><path d="M12 2v20"/></svg>
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#003087" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                      </div>
                   </div>
 
                   {/* Card 2 */}
                   <div className="fade-in-up delay-200" style={{background: '#a5a9c9', padding: '3rem', borderRadius: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                      <div>
-                        <h4 style={{fontSize: '1.3rem', fontWeight: 700, color: '#111', marginBottom: '0.5rem'}}>단순 치아성형이</h4>
-                        <p style={{fontSize: '1.1rem', color: '#111'}}>아닙니다</p>
+                        <h4 style={{fontSize: '1.3rem', fontWeight: 700, color: '#111', marginBottom: '0.5rem'}}>정품 재료 사용</h4>
+                        <p style={{fontSize: '1.1rem', color: '#111'}}>검증된 최상급 재료만을 고집합니다</p>
                      </div>
                      <div style={{background: '#fff', borderRadius: '50%', width: '80px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                         {/* Icon placeholder (X / Structure) */}
-                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18h8"/><path d="M3 21l9-9"/><path d="M21 3l-9 9"/></svg>
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
                      </div>
                   </div>
 
                   {/* Card 3 */}
                   <div className="fade-in-up delay-300" style={{background: '#1d2066', padding: '3rem', borderRadius: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                      <div>
-                        <h4 style={{fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem'}}>치아복구 솔루션입니다</h4>
+                        <h4 style={{fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem'}}>평생 관리 시스템</h4>
+                        <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem'}}>치료 후에도 끝까지 책임집니다</p>
                      </div>
                      <div style={{background: '#fff', borderRadius: '50%', width: '80px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                         {/* Icon placeholder (Hands/Heart) */}
-                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d2066" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1d2066" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                      </div>
                   </div>
                </div>
