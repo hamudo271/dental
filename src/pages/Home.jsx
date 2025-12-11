@@ -185,6 +185,67 @@ const Home = () => {
          </div>
       </section>
 
+      {/* Why Idea Section (New Request) */}
+      <section className="section" style={{paddingBottom: '10rem'}}>
+         <div className="container">
+            {/* Header */}
+            <div className="fade-in-up" style={{marginBottom: '5rem'}}>
+               <h2 className="title-display" style={{fontSize: '3.5rem', marginBottom: '1.5rem', color: '#000'}}>
+                  <span style={{color: '#000'}}>이데아</span>를 많은 사람들이<br/>선택하는 이유
+               </h2>
+               <p style={{fontSize: '1.1rem', color: '#666', fontWeight: 600}}>
+                  [ 원데이 이데아 클리닉 / 고난이도 임플란트 클리닉 / 특수교정 클리닉 ]<br/>
+                  <span style={{fontWeight: 400}}>고난이도 치과 치료 전문 병원은 <span style={{color: '#000', fontWeight: 700, textDecoration: 'underline'}}>이데아치과</span>입니다.</span>
+               </p>
+            </div>
+
+            {/* 3 Cards Grid */}
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '2rem'}}>
+               {/* Card 1: Scale */}
+               <div className="fade-in-up delay-100" style={{borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '400px', backgroundColor: '#f5f5f7'}}>
+                  <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&q=80&w=1000" style={{width: '100%', height: '100%', objectFit: 'cover'}} alt="Scale"/>
+                  <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.3)', padding: '2.5rem'}}>
+                     <span style={{background: '#333', color: '#fff', padding: '0.4rem 1rem', borderRadius: '4px', fontSize: '0.9rem', marginBottom: '1rem', display: 'inline-block'}}>규모</span>
+                     <h3 style={{color: '#fff', fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 700}}>대학병원급<br/>대형 규모</h3>
+                     <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: 1.6}}>의원급이 아닌 대학병원급<br/>시설과 장비를 갖추었습니다.</p>
+                  </div>
+               </div>
+
+               {/* Card 2: Trust */}
+               <div className="fade-in-up delay-200" style={{borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '400px', backgroundColor: '#f5f5f7'}}>
+                  <img src="https://images.unsplash.com/photo-1629909615184-74f495363b63?auto=format&fit=crop&q=80&w=1000" style={{width: '100%', height: '100%', objectFit: 'cover'}} alt="Trust"/>
+                  <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.3)', padding: '2.5rem'}}>
+                     <span style={{background: '#333', color: '#fff', padding: '0.4rem 1rem', borderRadius: '4px', fontSize: '0.9rem', marginBottom: '1rem', display: 'inline-block'}}>신뢰</span>
+                     <h3 style={{color: '#fff', fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 700}}>이데아 15년<br/>보증서 발행</h3>
+                     <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: 1.6}}>치료에 대한 자신감을 정품 인증을 통해<br/>최대 15년간 보증합니다.</p>
+                  </div>
+               </div>
+
+               {/* Card 3: Belief */}
+               <div className="fade-in-up delay-300" style={{borderRadius: '20px', overflow: 'hidden', position: 'relative', height: '400px', backgroundColor: '#f5f5f7'}}>
+                  <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1000" style={{width: '100%', height: '100%', objectFit: 'cover'}} alt="Belief"/>
+                  <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.3)', padding: '2.5rem'}}>
+                     <span style={{background: '#333', color: '#fff', padding: '0.4rem 1rem', borderRadius: '4px', fontSize: '0.9rem', marginBottom: '1rem', display: 'inline-block'}}>믿음</span>
+                     <h3 style={{color: '#fff', fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 700}}>이데아치과의<br/>20년 연혁</h3>
+                     <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: 1.6}}>20년 전부터 환자가 원하는 치료가<br/>무엇인지 고민하며 성장했습니다.</p>
+                  </div>
+               </div>
+            </div>
+
+            {/* Bottom Wide Card: Expert Team */}
+            <div className="fade-in-up delay-400" style={{borderRadius: '20px', border: '1px solid #eee', padding: '4rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#fff', boxShadow: '0 10px 30px rgba(0,0,0,0.03)'}}>
+               <div style={{maxWidth: '500px'}}>
+                  <span style={{background: '#111', color: '#fff', padding: '0.4rem 1rem', borderRadius: '50px', fontSize: '0.9rem', marginBottom: '1.5rem', display: 'inline-block'}}>전문성 & 편리함</span>
+                  <h3 style={{fontSize: '2rem', marginBottom: '1rem', fontWeight: 700}}>9명의 전문의들이 365일<br/>고객님의 치료를 도와드리겠습니다.</h3>
+                  <p style={{color: '#666', lineHeight: 1.6}}>특수 교정, 고난도 임플란트 등 9명의 전문과 의사가<br/>환자들의 편의를 위해 매일 진료를 합니다.</p>
+               </div>
+               <div style={{flex: 1, display: 'flex', justifyContent: 'flex-end'}}>
+                   <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" style={{height: '300px', objectFit: 'contain', mixBlendMode: 'multiply'}} alt="Doctor Team"/>
+               </div>
+            </div>
+         </div>
+      </section>
+
 
     </div>
   );
