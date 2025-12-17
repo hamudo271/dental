@@ -20,82 +20,89 @@ const Header = () => {
   // Minish Logic: Header is transparent ONLY on Home when at top. 
   // Everywhere else (or when scrolled), it's white with a border.
   const isHome = location.pathname === '/';
-  const isTransparent = isHome && !isScrolled;
-  
-  const headerStyle = {
-    position: 'fixed', 
-    top: 0, 
-    left: 0, 
-    width: '100%', 
-    zIndex: 1000, 
-    transition: 'all 0.4s ease',
-    padding: isScrolled ? '1.2rem 0' : '2.5rem 0', // Minish has tall header initially
-    backgroundColor: isTransparent ? 'transparent' : 'rgba(255, 255, 255, 0.95)',
-    backdropFilter: isTransparent ? 'none' : 'blur(10px)',
-    borderBottom: isTransparent ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)',
-    color: isTransparent ? '#fff' : '#000'
-  };
+  // If we want to use the CSS classes fully, we might toggle a class on the header
+  const headerClass = `header ${isHome && !isScrolled ? 'transparent' : 'scrolled'}`;
 
-  const logoStyle = {
-    fontFamily: 'var(--font-main)', /* Minish uses Sans for Logo too */
-    fontSize: '1.4rem', 
-    letterSpacing: '0.05em', 
-    fontWeight: '700',
-    color: 'inherit',
-    textDecoration: 'none'
-  };
-
-  const navLinkStyle = {
-    fontSize: '0.95rem',
-    fontWeight: 500, // Minish relies on clean medium weight
-    color: 'inherit',
-    textDecoration: 'none',
-    transition: 'opacity 0.3s',
-    letterSpacing: '-0.01em',
-    opacity: isTransparent ? 0.9 : 1
-  };
-
-  // Minish Menu Structure
+  // Minish Menu Structure with Submenus
   const menuItems = [
-    { label: '특별함', path: '/', onClick: () => window.scrollTo(0,0) },
-    { label: '의료진소개', path: '/about' },
-    { label: '진료과목', path: '/services' },
-    { label: '둘러보기', path: '/interior' },
-    { label: '오시는길', path: '/contact' }
+    { 
+      label: '특별함', 
+      path: '/', 
+      subItems: [
+        { label: '병원소개', path: '/about' },
+        { label: '진료철학', path: '/philosophy' },
+        { label: '오시는길', path: '/contact' }
+      ]
+    },
+    { 
+      label: '의료진소개', 
+      path: '/about',
+      subItems: [
+        { label: '대표원장', path: '/about' },
+        { label: '의료진', path: '/team' }
+      ]
+    },
+    { 
+      label: '진료과목', 
+      path: '/services',
+      subItems: [
+        { label: '임플란트', path: '/services/implant' },
+        { label: '심미보철', path: '/services/aesthetic' },
+        { label: '치아교정', path: '/services/ortho' },
+        { label: '일반진료', path: '/services/general' }
+      ]
+    },
+    { 
+      label: '둘러보기', 
+      path: '/interior',
+      subItems: [
+        { label: '병원가이드', path: '/interior' },
+        { label: '시설안내', path: '/facilities' }
+      ]
+    },
+    { 
+      label: '오시는길', 
+      path: '/contact',
+      subItems: [
+          { label: '오시는길', path: '/contact' },
+          { label: '진료시간', path: '/hours' }
+      ]
+    }
   ];
 
   return (
-    <header className="header" style={headerStyle}>
-      <div className="container" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <Link to="/" style={logoStyle}>
+    <header className={headerClass}>
+      <div className="gnb">
+        <Link to="/" className="logo">
           IDEA DENTAL CLINIC
         </Link>
         
         {/* Desktop Nav */}
-        <nav className="desktop-nav" style={{display: 'flex', gap: '3.5rem'}}>
-          {menuItems.map((item) => (
-            <Link 
-              key={item.label} 
-              to={item.path} 
-              style={navLinkStyle}
-              onClick={item.onClick}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav>
+          <ul className="gnb-menu">
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <Link to={item.path} onClick={() => window.scrollTo(0, 0)}>
+                  {item.label}
+                </Link>
+                {item.subItems && (
+                  <ul className="depth2">
+                    {item.subItems.map((sub, subIndex) => (
+                      <li key={subIndex}>
+                        <Link to={sub.path}>{sub.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
         </nav>
 
         {/* Mobile Menu Toggle */}
         <button 
           className="mobile-menu-toggle" 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          style={{
-            background: 'none', 
-            border: 'none', 
-            cursor: 'pointer', 
-            color: 'inherit', 
-            display: 'none' 
-          }} 
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
