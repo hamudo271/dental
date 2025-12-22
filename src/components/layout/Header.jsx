@@ -6,6 +6,7 @@ import './Layout.css';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,8 +21,9 @@ const Header = () => {
   // Minish Logic: Header is transparent ONLY on Home when at top. 
   // Everywhere else (or when scrolled), it's white with a border.
   const isHome = location.pathname === '/';
-  // If we want to use the CSS classes fully, we might toggle a class on the header
-  const headerClass = `header ${isHome && !isScrolled ? 'transparent' : 'scrolled'}`;
+  
+  // If menu is open, we force the header to be white (solid) so the white menu looks natural
+  const headerClass = `header ${isHome && !isScrolled && !isMenuOpen ? 'transparent' : 'scrolled'}`;
 
   // Minish Menu Structure with Submenus
   const menuItems = [
@@ -71,7 +73,11 @@ const Header = () => {
   ];
 
   return (
-    <header className={headerClass}>
+    <header 
+      className={headerClass}
+      onMouseEnter={() => setIsMenuOpen(true)}
+      onMouseLeave={() => setIsMenuOpen(false)}
+    >
       <div className="gnb">
         <Link to="/" className="logo">
           IDEA DENTAL CLINIC
@@ -85,15 +91,7 @@ const Header = () => {
                 <Link to={item.path} onClick={() => window.scrollTo(0, 0)}>
                   {item.label}
                 </Link>
-                {item.subItems && (
-                  <ul className="depth2">
-                    {item.subItems.map((sub, subIndex) => (
-                      <li key={subIndex}>
-                        <Link to={sub.path}>{sub.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                {/* REMOVED: Nested local ul.depth2 */}
               </li>
             ))}
           </ul>
@@ -107,6 +105,35 @@ const Header = () => {
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
+      {/* FULL WIDTH MEGA MENU */}
+      <div className={`mega-menu ${isMenuOpen ? 'active' : ''}`}>
+        <div className="mega-menu-inner">
+          {menuItems.map((item, index) => (
+            <div className="mega-menu-column" key={index}>
+              {/* Optional: clickable Title or static label for the column if desired */}
+              {/* <div className="column-title">{item.label}</div> */}
+              
+              <ul className="mega-menu-list">
+                {item.subItems && item.subItems.map((sub, subIndex) => (
+                  <li key={subIndex}>
+                    <Link 
+                      to={sub.path}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      {sub.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </header>
   );
 };
